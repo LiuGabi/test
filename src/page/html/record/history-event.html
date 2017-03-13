@@ -1,0 +1,62 @@
+<div class="history-event">
+	<el-table :data='customerEvent.list' v-loading='listLoading'>
+
+		<el-table-column
+			type="index"
+			label='序号'
+			align='center'
+			width='65'></el-table-column>
+
+		<el-table-column
+			label='来电时间'
+			width="170">
+			<template scope="scope">
+				{{scope.row.answerTime | dateFormatToS}}
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			prop='id'
+			label='事件编号'
+			width="290">
+		</el-table-column>
+
+		<el-table-column
+			prop='callMatter'
+			label='来电是由'
+			width="95">
+		</el-table-column>
+
+		<el-table-column
+			prop='customerName'
+			label='座席人员'
+			width="95">
+		</el-table-column>
+
+		<el-table-column
+			label='状态'
+			width="65">
+			<template scope='scope'>
+				<span v-if='scope.row.status === 1' class='green'>结案</span>
+				<span v-else='scope.row.status' class='red'>提交</span>
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			prop='detailedContent'
+			label='详细内容'>
+		</el-table-column>
+	</el-table>
+
+	<!-- 当前客户历史事件列表 分页 -->
+	<div class='pagination'>
+		<el-pagination
+			@size-change="handleSizeChange"
+			@current-change="handleCurrentChange"
+		    :current-page='customerEvent.currentIndex'
+		    :page-sizes="[10, 20, 30, 40]"
+		    :page-size='customerEvent.pageSize'
+		    layout="total, sizes, prev, pager, next, jumper"
+		    :total='customerEvent.totalCount'></el-pagination> 
+	</div>
+</div>

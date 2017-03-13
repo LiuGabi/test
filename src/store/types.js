@@ -1,0 +1,24 @@
+// Account
+export const SIGNIN = 'SIGNIN';
+export const CLEAR_PASSWORD = 'CLEAR_PASSWORD';
+export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+
+
+// Receptionist
+export const RECEPTIONIST = 'RECEPTIONIST';
+
+// Customer events
+export const GET_CUSTOMER_EVENT = 'GET_CUSTOMER_EVENT';
+export const CREATE_CUSTOMER_EVENT = 'CREATE_CUSTOMER_EVENT';
+export const  GET_CUSTOMER_EVENT_EXCEL = 'GET_CUSTOMER_EVENT_EXCEL';
+
+// Customer
+export const GET_CUSTOMER_ID_INFO = 'GET_CUSTOMER_ID_INFO';
+export const GET_CUSTOMER_INFO = 'GET_CUSTOMER_INFO';
+export const GET_APPLY_LIST = 'GET_APPLY_LIST';
+export const GET_REPAY_LIST = 'GET_REPAY_LIST';
+export const GET_CUSTOMER_LOAN_INFO = 'GET_CUSTOMER_LOAN_INFO';
+export const GET_CUSTOMER_LOAN_DETAIL = 'GET_CUSTOMER_LOAN_DETAIL';
+
+// 云牛呼叫
+export const MAKECALL = 'MAKECALL';

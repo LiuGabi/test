@@ -1,0 +1,203 @@
+.record {
+	.outline {
+		margin-bottom: 20px;
+		border: 1px solid #e8e7e4;
+
+		h2 {
+			padding: 10px 0px;
+		}
+
+		.info {
+			padding: 35px 0px 25px;
+			border-top: 1px solid #e8e7e4;
+			background-color: #fff;
+
+			.col {
+				padding-left: 50px;
+				padding-right: 50px;
+				float: left;
+			}
+			.col.right-line {
+				border-right: 1px solid #e8e7e4;
+			}
+			.row {
+				margin-top: 15px;
+				margin-bottom: 15px;
+			}
+			.key {
+				display: inline-block;
+				margin: 0;
+				vertical-align: middle;
+				color: #767272;
+			}
+			.value {
+				display: inline-block;
+				margin: 0;
+				margin-left: 10px;
+				vertical-align: middle;
+				font-size: 18px;
+			}
+		}
+	}
+
+	.loan {
+		margin-bottom: 20px;
+		border: 1px solid #e8e7e4;
+
+		h2 {
+			padding: 10px 0px;
+		}
+
+		.tab {
+			padding: 0 50px;
+			border-top: 1px solid #e8e7e4;
+			background-color: #fff;
+			text-align: center;
+
+			.auth,
+			.apply,
+			.refund,
+			.settle {
+				display: inline-block;
+				margin-right: 60px;
+				margin-bottom: -1px;
+				padding: 35px 0 25px;
+				font-size: 14px;
+				cursor: pointer;
+				vertical-align: middle;	
+			}
+			.auth:before,
+			.apply:before,
+			.refund:before,
+			.settle:before {
+				display: inline-block;
+				content: '';
+				height: 50px;
+				width: 50px;
+				margin-right: 20px;
+				vertical-align: middle;
+				border: 1px solid #868686;
+				border-radius: 50%;
+				background-position: center center;
+			}
+			.auth:before {
+				background-image: url(images/head-gray.png);
+			}
+			.apply:before {
+				background-image: url(images/card-gray.png);
+			}
+			.refund:before {
+				background-image: url(images/money-gray.png);
+			}
+			.settle:before {
+				background-image: url(images/check-gray.png);
+			}
+
+			.auth.current,
+			.apply.current,
+			.refund.current,
+			.settle.current {
+				color: #ff3366;
+				background: url(images/arrow-up.png) no-repeat 15px 100px;
+			}
+			.auth.current:before,
+			.apply.current:before,
+			.refund.current:before,
+			.settle.current:before {
+				border-color: #ff3366;
+			}
+
+			.auth.current:before {
+				background-image: url(images/head-red.png);
+			}
+			.apply.current:before {
+				background-image: url(images/card-red.png);
+			}
+			.refund.current:before {
+				background-image: url(images/money-red.png);
+			}
+			.settle.current:before {
+				background-image: url(images/check-red.png);
+			}
+		}
+		.tab-content {
+			background-color: #fff;
+		}
+		.tab-content.auth {
+			padding: 35px 50px 25px;
+			border-top: 1px solid #e8e7e4;
+			font-size: 14px;
+
+			.col {
+				display: inline-block;
+				width: 250px;
+
+				li {
+					margin-bottom: 25px;
+				}
+				li.bottom-margin {
+					margin-bottom: 0;
+				}
+
+				i {
+					vertical-align: middle;
+					font-size: 20px;
+				}
+
+				span {
+					margin-left: 20px;
+					vertical-align: middle;
+				}
+
+			}
+			.col.two-line {
+				margin-right: 30px;
+				padding-left: 35px;
+				border-left: 1px solid #e8e7e4;
+				border-right: 1px solid #e8e7e4;
+			}
+		}
+	}
+
+	.new {
+		margin-bottom: 20px;
+		border: 1px solid #e8e7e4;
+
+		h2 {
+			padding: 10px 0px;
+		}
+
+		.head {
+			padding: 20px 75px;
+			border-top: 1px solid #e8e7e4;
+			background-color: #fff;
+
+			.receptime,
+			.cellphone {
+				display: inline-block;
+				font-size: 18px;
+			}
+			.cellphone {
+				margin-left: 35px;
+			}
+		}
+
+		.info {
+			padding: 35px 50px 25px;
+			border-top: 1px solid #e8e7e4;
+			background-color: #fff;
+		}
+	}
+
+	.green {
+		color: #13CE66;
+	}
+	.red {
+		color: #f36;
+	}
+
+	.pagination {
+		padding: 15px 0;
+		text-align: right;
+	}
+}
