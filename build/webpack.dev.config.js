@@ -19,7 +19,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.vue$/, loader: 'vue' },
-            { test: /\.js$/, loader: 'babel', exclude: /^node_modules$/ },
+            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
             { test: /\.css$/, loader: 'style!css!autoprefixer'},
             { test: /\.less$/, loader: 'style!css!less' },
             { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
@@ -38,7 +38,7 @@ module.exports = {
                 "style-loader",
                 "css-loader?sourceMap",
                 {
-                    publicPath: config.root + config.test.pabulicPath
+                    publicPath: config.dev.pabulicPath
                 }
             ),
             less: ExtractTextPlugin.extract(

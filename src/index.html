@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 	<title>客服系统</title>
+	<link href="/src/app.css" rel="stylesheet">
 </head>
 
 <body>
@@ -13,8 +14,12 @@
 		</transition>
 	</div>
 
+	<script type="text/javascript" src="/src/vendors.js"></script>
+    <script type="text/javascript" src="/src/app.js"></script>
+
+
     <!-- 引入云牛事件 -->
-	<!-- <script type="text/javascript" src="/static/js/cocc-jquery-1.5.min.js"></script>
+	<script type="text/javascript" src="/static/js/cocc-jquery-1.5.min.js"></script>
 	<script type="text/javascript">
 		var cocc_ip = 'cc01.cloudox.net';
 		var cocc_identity = 'chemao';
@@ -34,7 +39,7 @@
 			if (aryEvent['source'] == 'AGENT' && aryEvent['event'] == 'ringing') {
 
 				localStorage.setItem('coccRinging', aryEvent['event']);
-				localStorage.setItem('customerPhone', aryEvent['calleridnum']);
+				localStorage.setItem('coccCalleridnum', aryEvent['calleridnum']);
 
 				console.log('bb', aryEvent);
 			}
@@ -45,6 +50,6 @@
 		jQuery(document).ready(function(){
 			coccNginxHttpPushNAPI();
 		});
-	</script> -->
+	</script>
 </body>
 </html>

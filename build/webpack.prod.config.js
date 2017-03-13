@@ -37,7 +37,7 @@ module.exports = {
                 "style-loader",
                 "css-loader?sourceMap",
                 {
-                    publicPath: config.root + config.test.pabulicPath
+                    publicPath: config.prod.pabulicPath
                 }
             ),
             less: ExtractTextPlugin.extract(
