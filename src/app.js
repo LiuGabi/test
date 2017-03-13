@@ -17,7 +17,7 @@ Vue.use(EleUI);
 /** Use vue router **/
 Vue.use(VueRouter);
 const router = new VueRouter({
-	// mode: 'history',
+	mode: 'history',
 	routes,
 	linkActiveClass: 'active'
 });
