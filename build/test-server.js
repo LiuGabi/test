@@ -1,0 +1,25 @@
+const webpack = require('webpack');
+const webpackDevServer = require('webpack-dev-server');
+
+const webpackConfig = require('./webpack.test.config');
+const config = require('../config/');
+
+let compiler = webpack(webpackConfig);
+let devServer = new webpackDevServer(compiler, {
+	publicPath: webpackConfig.output.publicPath,
+	stats: {
+		colors: true,
+		chunks: true
+	},
+	contentBase: 'src/',
+	historyApiFallback: true,
+	proxy: config.test.proxy
+});
+
+devServer.listen(config.test.port, error => {
+	if(error) {
+		console.log(error);
+		return;
+	}
+	console.log('http://localhost:' + config.test.port);
+});
