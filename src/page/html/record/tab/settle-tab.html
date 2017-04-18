@@ -1,0 +1,197 @@
+<div class="settle clearfix">
+
+	<!-- 当前客户申请列表 -->
+	<el-table :data='settleList.list' v-loading='settleListLoading'>
+
+		<el-table-column
+			type="index"
+			label='序号'
+			align='center'
+			width='65'></el-table-column>
+
+		<el-table-column
+			label='放款时间'
+			width="170">
+			<template scope="scope">
+				{{scope.row.loanTime | dateFormatToS}}
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			prop='applyId'
+			label='借款编号'
+			width="200">
+		</el-table-column>
+
+		<el-table-column
+			label='借款金额'
+			width="100">
+			<template scope="scope">
+				{{scope.row.capital}}元
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='借款期限'
+			width="100"
+			align='center'>
+			<template scope="scope">
+				{{scope.row.period}}天
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='到期时间'
+			width='170'>
+			<template scope="scope">
+				{{scope.row.repaymentTime | dateFormatToS}}
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='结清时间'
+			width='170'>
+			<template scope="scope">
+				{{scope.row.actualRepaymentTime | dateFormatToS}}
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='逾期天数'
+			width='100'
+			align='center'>
+			<template scope="scope">
+				{{scope.row.overdueDays}} 天
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='操作 1'
+			width='90'>
+			<template scope="scope">
+				<el-popover
+					ref="popCustomerLoanInfo"
+					placement="right"
+					width="400"
+					@show='handleLoanInfo(scope.row)'>
+					<el-table :data='loanInfo.detailInfos' width='100%'>
+						<el-table-column
+							label='费用类型'
+							width="150">
+							<template scope='scope'>
+								{{scope.row.chargeType | chargeTypeMap}}
+							</template>
+						</el-table-column>
+
+						<el-table-column
+							prop='amount'
+							label='金额'>
+							<template scope='scope'>
+								{{scope.row.amount}} 元
+							</template>
+						</el-table-column>
+					</el-table>
+
+					<!-- 以下三组 table 为自定数组，此为特殊情况 -->
+					<el-table :data='[{"alreadyRepaidAmount": loanInfo.alreadyRepaidAmount}]' :show-header='false' width='100%'>
+						<el-table-column width="150">
+							<template scope='scope'>
+								已还金额
+							</template>
+						</el-table-column>
+						<el-table-column>
+							<template scope='scope'>
+								{{scope.row.alreadyRepaidAmount}} 元
+							</template>
+						</el-table-column>
+					</el-table>
+
+					<el-table :data='[{"discountTotalAmount": loanInfo.discountTotalAmount}]' :show-header='false' width='100%'>
+						<el-table-column width="150">
+							<template scope='scope'>
+								减免金额
+							</template>
+						</el-table-column>
+						<el-table-column>
+							<template scope='scope'>
+								{{scope.row.discountTotalAmount}} 元
+							</template>
+						</el-table-column>
+					</el-table>
+
+					<el-table :data='[{"notYetTotalAmount": loanInfo.notYetTotalAmount}]' :show-header='false' width='100%'>
+						<el-table-column width="150">
+							<template scope='scope'>
+								待还金额
+							</template>
+						</el-table-column>
+						<el-table-column>
+							<template scope='scope'>
+								{{scope.row.notYetTotalAmount}} 元
+							</template>
+						</el-table-column>
+					</el-table>
+				</el-popover>
+				<el-button v-popover:popCustomerLoanInfo size="small">查看费用</el-button>
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='操作 2'>
+			<template scope="scope">
+				<el-popover
+					ref="popCustomerLoanDetail"
+					placement="right"
+					width="650"
+					@show='handleLoanDetail(scope.row)'>
+					<el-table :data='loanDetailList' width='100%'>
+						<el-table-column
+							label='借款编号'
+							width="200">
+							<template scope='scopeLoanDetail'>
+								{{scope.row.applyId}}
+							</template>
+						</el-table-column>
+
+						<el-table-column
+							label='还款日期'
+							width='170'>
+							<template scope='scopeLoanDetail'>
+								{{scope.row.repaymentTime | dateFormatToM}}
+							</template>
+						</el-table-column>
+
+						<el-table-column
+							label='还款金额'
+							width="90">
+							<template scope='scopeLoanDetail'>
+								{{scopeLoanDetail.row.amount}} 元
+							</template>
+						</el-table-column>
+
+						<el-table-column
+							label='还款方式'>
+							<template scope='scopeLoanDetail'>
+								{{scopeLoanDetail.row.repaymentMethod | repaywayMap}}
+							</template>
+						</el-table-column>
+					</el-table>
+				</el-popover>
+				<el-button v-popover:popCustomerLoanDetail size="small">查看已还金额</el-button>
+			</template>
+		</el-table-column>
+	</el-table>
+
+	<!-- 当前客户历史事件列表 分页 -->
+	<div class='pagination'>
+		<el-pagination
+			@size-change="handleSizeChange"
+			@current-change="handleCurrentChange"
+		    :current-page='settleList.currentIndex'
+		    :page-sizes="[10, 20, 30, 40]"
+		    :page-size='settleList.pageSize'
+		    layout="total, sizes, prev, pager, next, jumper"
+		    :total='settleList.totalCount'></el-pagination> 
+	</div>
+	
+</div>

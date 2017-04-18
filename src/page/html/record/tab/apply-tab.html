@@ -1,0 +1,68 @@
+<div>
+	<!-- 当前客户申请列表 -->
+	<el-table :data='ApplyList.list' v-loading='applyListLoading'>
+
+		<el-table-column
+			type="index"
+			label='序号'
+			align='center'
+			width='65'></el-table-column>
+
+		<el-table-column
+			label='申请类型'
+			width="150">
+			<template scope="scope">
+				提现申请
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='申请时间'
+			width="170">
+			<template scope="scope">
+				{{scope.row.createTime | dateFormatToS}}
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			prop='id'
+			label='申请编号'
+			width="200">
+		</el-table-column>
+
+		<el-table-column
+			label='申请金额'
+			width="150">
+			<template scope="scope">
+				{{scope.row.capital}}元
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='申请期限'
+			width="100">
+			<template scope="scope">
+				{{scope.row.period}}天
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='审查结果'>
+			<template scope="scope">
+				{{scope.row.status | refundStatusMap}}
+			</template>
+		</el-table-column>
+	</el-table>
+
+	<!-- 当前客户历史事件列表 分页 -->
+	<div class='pagination'>
+		<el-pagination
+			@size-change="handleSizeChange"
+			@current-change="handleCurrentChange"
+		    :current-page='ApplyList.currentIndex'
+		    :page-sizes="[10, 20, 30, 40]"
+		    :page-size='ApplyList.pageSize'
+		    layout="total, sizes, prev, pager, next, jumper"
+		    :total='ApplyList.totalCount'></el-pagination> 
+	</div>
+</div>

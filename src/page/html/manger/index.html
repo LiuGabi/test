@@ -1,0 +1,202 @@
+<div class='manger'>
+		<!-- 录入事件 -->
+	<div class='record'>
+		<h2 class='kf-title'>录入事件</h2>
+		<div class="info">
+			<el-form :inline="true" :model="customerPhoneData" :rules='customerPhoneDataRules' ref="customerPhoneData">
+				<el-form-item prop='phone'>
+					<el-input placeholder="客户电话" v-model='customerPhoneData.phone' :maxlength='11'></el-input>
+				</el-form-item>
+
+				<el-form-item>
+					<el-button type="primary" @click='searchCustomerId("customerPhoneData")'>查询</el-button>
+					<el-button @click='resetCustomerId("customerPhoneData")'>重置</el-button>
+				</el-form-item>
+
+				<el-form-item v-if='customerPhoneData.phone !== "" && isShowRecordLink'>
+					 <router-link
+					 	v-if='customerIdInfo.customerId === 0'
+                        target='_blank'
+                        :to="{
+                                name: 'record',
+                                params: {
+                                    customerId: customerIdInfo.customerId,
+                                    recepTime: (new Date().getTime()),
+                                    phone: base64linkPhone
+                                }
+                            }">
+                            	录入陌生人事件
+                    </router-link>
+                    <router-link
+					 	v-else
+                        target='_blank'
+                        :to="{
+                                name: 'record',
+                                params: {
+                                    customerId: customerIdInfo.customerId,
+                                    recepTime: (new Date().getTime()),
+                                    phone: base64linkPhone
+                                }
+                            }">
+                            	录入客户 {{customerIdInfo.customerId}} 事件
+                    </router-link>
+				</el-form-item>
+			</el-form>
+		</div>
+	</div>
+
+	<!-- 我的事件列表 查询 -->
+	<div class="search">
+		<h2 class='kf-title'>我的事件</h2>
+		<div class='info'>
+			<el-form :inline="true" :model="customerEventData" :rules='customerEventDataRules' ref="customerEventData">
+				<el-form-item label="来电时间:">
+					<el-col :span="11">
+						<el-form-item prop='incoming_time_from'>
+							<el-date-picker
+								v-model="customerEventData.incoming_time_from"
+								type="datetime"
+								placeholder="开始"
+								size='small'>
+								</el-date-picker>
+						</el-form-item>
+					</el-col>
+					<el-col :span="2" style='text-align: center;'>至</el-col>
+					<el-col :span="11">
+						<el-form-item prop='incoming_time_to'>
+							<el-date-picker
+								v-model="customerEventData.incoming_time_to"
+								type="datetime"
+								placeholder="结束"
+								size='small'>
+								</el-date-picker>
+						</el-form-item>
+					</el-col>
+				</el-form-item>
+
+				<el-form-item label="客户编号:" prop='user_id'>
+					<el-input v-model='customerEventData.user_id' placeholder="客户编号" size='small'></el-input>
+				</el-form-item>
+
+				<el-form-item label="事件编号:" prop='event_no'>
+					<el-input v-model='customerEventData.event_no' placeholder="事件编号" size='small'></el-input>
+				</el-form-item>
+
+				<el-form-item label="来电事由:" prop='event_type'>
+					<el-select v-model='customerEventData.event_type' placeholder="来电事由" size='small'>
+						<el-option value='' label='全部'></el-option>
+						<el-option value="借款问题"></el-option>
+						<el-option value="放款问题"></el-option>
+						<el-option value="要求取消借款/额度申请"></el-option>
+						<el-option value="还款问题"></el-option>
+						<el-option value="资料问题"></el-option>
+						<el-option value="续期问题"></el-option>
+						<el-option value="逾期问题"></el-option>
+						<el-option value="手机相关问题"></el-option>
+						<el-option value="账号问题"></el-option>
+						<el-option value="其他"></el-option>
+					</el-select>
+				</el-form-item>
+
+				<el-form-item label="来电类型:" prop='customer_type'>
+					<el-select v-model='customerEventData.customer_type' placeholder="来电类型" size='small'>
+						<el-option value='' label='全部'></el-option>
+						<el-option value='SIGN_UP' label='注册用户'></el-option>
+						<el-option value='NON_SIGN_UP' label='非注册用户'></el-option>
+					</el-select>
+				</el-form-item>
+
+				<el-form-item label="坐席人员:" prop='receptionist'>
+					<el-input v-model='customerEventData.receptionist' placeholder="坐席人员" size='small'></el-input>
+				</el-form-item>
+
+				<el-form-item label="事件状态:" prop='status'>
+					<el-select v-model='customerEventData.status' placeholder="事件状态" size='small'>
+						<el-option value='' label='全部'></el-option>
+						<el-option value='COMPLETE' label='结案'></el-option>
+						<el-option value='SUBMIT' label='提交'></el-option>
+					</el-select>
+				</el-form-item>
+
+				<el-form-item>
+					<el-button type="primary" size='small' @click='search("customerEventData")'>查询</el-button>
+					<el-button size='small' @click='resetSearch("customerEventData")'>重新筛选</el-button>
+				</el-form-item>
+			</el-form>
+		</div>
+	</div>
+
+	<!-- 我的事件列表 -->
+	<div class="export-all">
+		<el-button type="primary" size="large" @click='handleExportAll("customerEventData")' :loading='exportLoading'>全部导出</el-button>
+	</div>
+	<el-table :data='customerEvent.list' v-loading='listLoading'>
+
+		<el-table-column
+			type="index"
+			label='序号'
+			align='center'
+			width='65'></el-table-column>
+
+		<el-table-column
+			label='来电时间'
+			width="170">
+			<template scope="scope">
+				{{scope.row.answerTime | dateFormatToS}}
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			label='客户编号'
+			width="95">
+			<template scope="scope">
+				<span v-if='scope.row.userId'>{{scope.row.userId}}</span>
+				<span v-else>无</span>
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			prop='id'
+			label='事件编号'
+			width="290">
+		</el-table-column>
+
+		<el-table-column
+			prop='callMatter'
+			label='来电事由'
+			width="95">
+		</el-table-column>
+
+		<el-table-column
+			prop='customerName'
+			label='座席人员'
+			width="120">
+		</el-table-column>
+
+		<el-table-column
+			label='状态'
+			width="65">
+			<template scope='scope'>
+				<span v-if='scope.row.status === 1' class='green'>结案</span>
+				<span v-else='scope.row.status' class='red'>提交</span>
+			</template>
+		</el-table-column>
+
+		<el-table-column
+			prop='detailedContent'
+			label='详细内容'>
+		</el-table-column>
+	</el-table>
+
+	<!-- 我的事件列表 分页 -->
+	<div class='pagination'>
+		<el-pagination
+			@size-change="handleSizeChange"
+			@current-change="handleCurrentChange"
+		    :current-page='customerEvent.currentIndex'
+		    :page-sizes="[10, 20, 30, 40]"
+		    :page-size='customerEvent.pageSize'
+		    layout="total, sizes, prev, pager, next, jumper"
+		    :total='customerEvent.totalCount'></el-pagination> 
+	</div>
+</div>

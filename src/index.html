@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
-	<title>用户-管理系统</title>
-
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>客服系统</title>
 	<link href="/src/app.css" rel="stylesheet">
 </head>
 
 <body>
 	<div id="app">
-		<router-view></router-view>
+		<transition name="fade">
+			<router-view></router-view>
+		</transition>
 	</div>
 
 	<script type="text/javascript" src="/src/vendors.js"></script>
     <script type="text/javascript" src="/src/app.js"></script>
 </body>
-
 </html>

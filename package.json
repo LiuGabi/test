@@ -1,7 +1,7 @@
 {
-  "name": "sdxd-admin-h5",
+  "name": "sdxd-web-service",
   "version": "1.0.0",
-  "description": "Admin manage",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
