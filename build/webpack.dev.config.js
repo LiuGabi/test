@@ -19,7 +19,7 @@ module.exports = {
 	module: {
 		loaders: [
 			{ test: /\.vue$/, loader: 'vue' },
-            { test: /\.js$/, loader: 'babel', exclude: /node_modules/ },
+            { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.css$/, loader: 'style!css!autoprefixer'},
             { test: /\.less$/, loader: 'style!css!less' },
             { test: /\.scss$/, loader: 'style!css!sass?sourceMap'},
@@ -45,7 +45,7 @@ module.exports = {
                 'vue-style-loader',
                 'css-loader!less-loader'
             ),
-            js: 'babel'
+            js: 'babel-loader'
         }
 	},
 	resolve: {
