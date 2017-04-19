@@ -18,7 +18,7 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-			{ test: /\.vue$/, loader: 'vue' },
+			{ test: /\.vue$/, loader: 'vue-loader' },
             { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
             { test: /\.css$/, loader: 'style!css!autoprefixer'},
             { test: /\.less$/, loader: 'style!css!less' },
