@@ -564,25 +564,25 @@ h1, h2, h3, h4, h5, h6 {
 body {
   font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
   font-weight: 400;
-  font-size: 12px;
-  color: rgb(61, 31, 35);
+  font-size: 14px;
+  color: rgb(31, 45, 61);
 }
 
 a {
-  color: #ff3366;
+  color: #20a0ff;
   text-decoration: none
 }
 
 a:hover, a:focus {
-  color: rgb(255, 92, 133);
+  color: rgb(77, 179, 255);
 }
 
 a:active {
-  color: rgb(230, 46, 92);
+  color: rgb(29, 144, 230);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: rgb(61, 31, 35);
+  color: rgb(31, 45, 61);
   font-weight: inherit
 }
 
@@ -595,15 +595,15 @@ h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:la
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 20px;
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 h3 {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 h4, h5, h6, p {
@@ -623,13 +623,19 @@ p:last-child {
 }
 
 sup, sub {
-  font-size: 11px;
+  font-size: 13px;
 }
 
 small {
-  font-size: 10px;
+  font-size: 12px;
 }
-:root {
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eeeeee;
+}:root {
   /* Transition
   -------------------------- */
   /* Colors

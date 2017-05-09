@@ -3,19 +3,34 @@ export const SIGNIN = 'SIGNIN';
 export const CLEAR_PASSWORD = 'CLEAR_PASSWORD';
 export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
 
+// 产品配置
+export const BANNER = 'BANNER';
+export const ADD_BANNER = 'ADD_BANNER';
+export const EDIT_BANNER = 'EDIT_BANNER';
+export const DELETE_BANNER = 'DELETE_BANNER';
 
-// Receptionist
-export const RECEPTIONIST = 'RECEPTIONIST';
+export const NOTICE = 'NOTICE';
+export const ADD_NOTICE = 'ADD_NOTICE';
+export const EDIT_NOTICE = 'EDIT_NOTICE';
+export const DELETE_NOTICE = 'DELETE_NOTICE';
 
-// Customer events
-export const GET_CUSTOMER_EVENT = 'GET_CUSTOMER_EVENT';
-export const CREATE_CUSTOMER_EVENT = 'CREATE_CUSTOMER_EVENT';
-export const  GET_CUSTOMER_EVENT_EXCEL = 'GET_CUSTOMER_EVENT_EXCEL';
+export const AGREEMENT = 'AGREEMENT';
+export const ADD_AGREEMENT = 'ADD_AGREEMENT';
+export const REMOVE_AGREEMENT = 'REMOVE_AGREEMENT';
 
-// Customer
-export const GET_CUSTOMER_ID_INFO = 'GET_CUSTOMER_ID_INFO';
-export const GET_CUSTOMER_INFO = 'GET_CUSTOMER_INFO';
-export const GET_APPLY_LIST = 'GET_APPLY_LIST';
-export const GET_REPAY_LIST = 'GET_REPAY_LIST';
-export const GET_CUSTOMER_LOAN_INFO = 'GET_CUSTOMER_LOAN_INFO';
-export const GET_CUSTOMER_LOAN_DETAIL = 'GET_CUSTOMER_LOAN_DETAIL';
+// 用户列表
+export const USER = 'USER';
+export const CREATE_USER = 'CREATE_USER';
+export const RESET_PASSWORD = 'RESET_PASSWORD';
+export const SWITCH = 'SWITCH';
+
+// 角色
+export const ROLE = 'ROLE';
+export const USER_ROLE = 'USER_ROLE';
+export const EDIT_USER_ROLE = 'EDIT_USER_ROLE';
+
+// 控制角色是否通过
+export const APPROVE = 'APPROVE';
+
+// 上传
+export const UPLOAD_FILE = 'UPLOAD_FILE';

@@ -4,7 +4,7 @@ module.exports = {
 	prod: {
 		path: path.resolve(__dirname + '../src'),
 		pabulicPath: '/src/',
-		port: 80,
+		port: 8081,
 		proxy: [{
 			context: ['/api'],
 			target: 'http://139.224.94.110:80/',// 生产环境 api 接口
@@ -18,7 +18,7 @@ module.exports = {
 	test: {
 		path: path.resolve(__dirname + '../src'),
 		pabulicPath: '/src/',
-		port: 8089,
+		port: 8081,
 		proxy: [{
 			context: ['/api'],
 			target: 'http://10.253.106.182:8080/',// 测试环境 api 接口

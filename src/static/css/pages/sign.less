@@ -1,110 +1,582 @@
 .sign-wrapper {
+	padding: 20px;
 	height: calc(100vh);
-	background: url('images/sign-bg.jpg') no-repeat center 0 #c9e4f9;
-	background-size: cover;
-}
+	overflow: hidden;
+	background-color: #eee;
 
-.sign {
-	position: fixed;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%,-50%);
-    width: 500px;
-    border-radius: 2px;
-    background-color: #fff;
-    box-shadow: 1px 1px 8px 1px #99c3e4;
+	.sign {
+		position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    -webkit-transform: translate(-50%,-50%);
+	    width: 500px;
+	    border-radius: 2px;
+	    background-color: #fff;
+	    box-shadow: 1px 1px 8px 1px #99c3e4;
+	    z-index: 1;
 
-    .logo {
-	    position: relative;
-	    margin: 0;
-	    height: 130px;
-	    text-indent: -100px;
-    	overflow: hidden;
-	    background-color: #ff3366;
+	    .logo {
+		    position: relative;
+		    margin: 0;
+		    height: 130px;
+		    text-indent: -100px;
+	    	overflow: hidden;
+		    background-color: #20a0ff;
 
-	    &:after {
-			content: "";
-			position: absolute;
-			left: 0;
-			top: 0;
-			right: 0;
-			height: 100%;
-			background: url('images/logo-login.png') center center no-repeat;
+		    &:after {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				right: 0;
+				height: 100%;
+				background: url('images/logo-login.png') center center no-repeat;
+			}
+		}
+
+		.account-wrap {
+			position: relative;
+			padding: 50px 60px;
+
+			.account,
+			.password {
+			    padding: 17px 30px;
+			    border: 1px solid #dedede;
+			    font-size: 15px;
+			}
+			.account {
+				margin-bottom: -1px;
+			}
+
+			.account.empty,
+			.password.empty {
+				color: #20a0ff;
+				border-color: #20a0ff;
+			}
+
+			.account label,
+			.password label {
+				width: 50px;
+				margin-right: 20px;
+			}
+
+			.account label,
+			.account span,
+			.password label,
+			.password span {
+				display: inline-block;
+			}
+
+			.account input,
+			.password input {
+				font-size: 15px;
+				border: 0;
+				outline: none;
+			}
+
+			.submit {
+				display: block;
+				width: 100%;
+				margin-top: 30px;
+				padding: 12px;
+				font-size: 15px;
+				font-weight: 400;
+				line-height: 1.42857143;
+				text-align: center;
+				white-space: nowrap;
+				vertical-align: middle;
+				-ms-touch-action: manipulation;
+				touch-action: manipulation;
+				cursor: pointer;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				background-image: none;
+				border: 1px solid transparent;
+				border-radius: 2px;
+				color: #fff;
+				text-decoration: none;
+				background-color: #20a0ff;
+				outline: none;
+			}
+
+			.error {
+				position: absolute;
+				bottom: 10px;
+				left: 60px;
+				color: #ff4949;
+			}
 		}
 	}
 
-	.account-wrap {
+	.gears {
 		position: relative;
-		padding: 50px 60px;
+		width: 478px;
+		height: 655px;
+		margin-left: 150px;
+		z-index: 0;
 
-		.account,
-		.password {
-		    padding: 17px 30px;
-		    border: 1px solid #dedede;
-		    font-size: 15px;
-		}
-		.account {
-			margin-bottom: -1px;
-		}
-
-		.account.empty,
-		.password.empty {
-			color: #ff3366;
-			border-color: #ff3366;
-		}
-
-		.account label,
-		.password label {
-			width: 50px;
-			margin-right: 20px;
-		}
-
-		.account label,
-		.account span,
-		.password label,
-		.password span {
-			display: inline-block;
-		}
-
-		.account input,
-		.password input {
-			font-size: 15px;
-			border: 0;
-			outline: none;
-		}
-
-		.submit {
-			display: block;
-			width: 100%;
-			margin-top: 30px;
-			padding: 12px;
-			font-size: 15px;
-			font-weight: 400;
-			line-height: 1.42857143;
-			text-align: center;
-			white-space: nowrap;
-			vertical-align: middle;
-			-ms-touch-action: manipulation;
-			touch-action: manipulation;
-			cursor: pointer;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			background-image: none;
-			border: 1px solid transparent;
-			border-radius: 2px;
-			color: #fff;
-			text-decoration: none;
-			background-color: #ff3366;
-			outline: none;
-		}
-
-		.error {
+		.gear-static {
+			width: 329px;
+			height: 602px;
 			position: absolute;
-			bottom: 10px;
-			left: 60px;
-			color: #d65853;
+			bottom: 5px;
+			right: 0px;
+			opacity: 0.4;
+
+			background: url(images/gears.png) no-repeat -363px -903px;
+		}
+		.gear-1 {
+
+			.circle-1 {
+				position: absolute;
+				width: 321px;
+				height: 321px;
+				left: 45px;
+				top: 179px;
+				background: url(images/gears.png) no-repeat 0 -993px;
+
+				-webkit-animation: rotate-back 24000ms linear infinite;
+				-moz-animation: rotate-back 24000ms linear infinite;
+				-ms-animation: rotate-back 24000ms linear infinite;
+				animation: rotate-back 24000ms linear infinite;
+			}
+
+			.circle-2 {
+				width: 87px;
+				height: 87px;
+				position: absolute;
+				left: 162px;
+				top: 296px;
+				background: url(images/gears.png) no-repeat 0 -856px;
+			}
+
+			.circle-3 {
+				width: 62px;
+				height: 62px;
+				position: absolute;
+				left: 174px;
+				top: 309px;
+				background: url(images/gears.png) no-repeat 0 -744px;
+
+				-webkit-animation: rotate 8000ms linear infinite;
+				-moz-animation: rotate 8000ms linear infinite;
+				-ms-animation: rotate 8000ms linear infinite;
+				animation: rotate 8000ms linear infinite;
+			}
+		}
+
+		.gear-2 {
+
+			.circle-1 {
+				width: 122px;
+				height: 122px;
+				position: absolute;
+				left: 175px;
+				top: 0;
+				background: url(images/gears.png) no-repeat 0 -184px;
+
+				-webkit-animation: rotate-back 8000ms linear infinite;
+				-moz-animation: rotate-back 8000ms linear infinite;
+				-ms-animation: rotate-back 8000ms linear infinite;
+				animation: rotate-back 8000ms linear infinite;
+			}
+
+			.circle-2 {
+				width: 85px;
+				height: 84px;
+				position: absolute;
+				left: 194px;
+				top: 19px;
+				background: url(images/gears.png) no-repeat 0 -1493px;
+
+				-webkit-animation: rotate 10000ms linear infinite;
+				-moz-animation: rotate 10000ms linear infinite;
+				-ms-animation: rotate 10000ms linear infinite;
+				animation: rotate 10000ms linear infinite;
+			}
+		}
+
+		.gear-3 {
+			.circle-1 {
+				width: 234px;
+				height: 234px;
+				position: absolute;
+				left: 197px;
+				top: 96px;
+				background: url(images/gears.png) no-repeat -371px -280px;
+
+				-webkit-animation: rotate 12000ms linear infinite;
+				-moz-animation: rotate 12000ms linear infinite;
+				-ms-animation: rotate 12000ms linear infinite;
+				animation: rotate 12000ms linear infinite;
+			}
+			.circle-2 {
+				width: 108px;
+				height: 108px;
+				position: absolute;
+				left: 260px;
+				top: 159px;
+				background: url(images/gears.png) no-repeat -371px 0;
+
+				-webkit-animation: rotate-back 10000ms linear infinite;
+				-moz-animation: rotate-back 10000ms linear infinite;
+				-ms-animation: rotate-back 10000ms linear infinite;
+				animation: rotate-back 10000ms linear infinite;
+			}
+		}
+
+		.gear-4 {
+			.circle-1 {
+				width: 134px;
+				height: 134px;
+				position: absolute;
+				left: 305px;
+				bottom: 212px;
+				background: url(images/gears.png) no-repeat 0 -1931px;
+
+				-webkit-animation: rotate-back 10000ms linear infinite;
+				-moz-animation: rotate-back 10000ms linear infinite;
+				-ms-animation: rotate-back 10000ms linear infinite;
+				animation: rotate-back 10000ms linear infinite;
+			}
+			.circle-2 {
+				width: 69px;
+				height: 69px;
+				position: absolute;
+				left: 337px;
+				bottom: 245px;
+				background: url(images/gears.png) no-repeat 0 -1627px;
+
+				-webkit-animation: rotate-back 10000ms linear infinite;
+				-moz-animation: rotate-back 10000ms linear infinite;
+				-ms-animation: rotate-back 10000ms linear infinite;
+				animation: rotate-back 10000ms linear infinite;
+			}
+		}
+		.gear-5 {
+			.circle-1 {
+				width: 164px;
+				height: 164px;
+				position: absolute;
+				left: 208px;
+				bottom: 85px;
+				background: url(images/gears.png) no-repeat 0 -530px;
+
+				-webkit-animation: rotate 8000ms linear infinite;
+				-moz-animation: rotate 8000ms linear infinite;
+				-ms-animation: rotate 8000ms linear infinite;
+				animation: rotate 8000ms linear infinite;
+			}
+			.circle-2 {
+				width: 125px;
+				height: 124px;
+				position: absolute;
+				left: 228px;
+				bottom: 105px;
+				background: url(images/gears.png) no-repeat 0 -356px;
+
+				-webkit-animation: rotate-back 10000ms linear infinite;
+				-moz-animation: rotate-back 10000ms linear infinite;
+				-ms-animation: rotate-back 10000ms linear infinite;
+				animation: rotate-back 10000ms linear infinite;
+			}
+			.circle-3 {
+				width: 72px;
+				height: 72px;
+				position: absolute;
+				left: 254px;
+				bottom: 131px;
+				background: url(images/gears.png) no-repeat -371px -158px;
+
+				-webkit-animation: rotate 6000ms linear infinite;
+				-moz-animation: rotate 6000ms linear infinite;
+				-ms-animation: rotate 6000ms linear infinite;
+				animation: rotate 6000ms linear infinite;
+			}
+		}
+		.gear-6 {
+			.circle-1 {
+				width: 134px;
+				height: 135px;
+				position: absolute;
+				left: 22px;
+				top: 108px;
+				background: url(images/gears.png) no-repeat 0 -1746px;
+
+				-webkit-animation: rotate 10000ms linear infinite alternate;
+				-moz-animation: rotate 10000ms linear infinite alternate;
+				-ms-animation: rotate 10000ms linear infinite alternate;
+				animation: rotate 10000ms linear infinite alternate;
+			}
+			.circle-2 {
+				width: 80px;
+				height: 79px;
+				position: absolute;
+				left: 49px;
+				top: 136px;
+				background: url(images/gears.png) no-repeat 0 -1364px;
+
+				-webkit-animation: rotate-back 10000ms linear infinite alternate;
+				-moz-animation: rotate-back 10000ms linear infinite alternate;
+				-ms-animation: rotate-back 10000ms linear infinite alternate;
+				animation: rotate-back 10000ms linear infinite alternate;
+			}
+		}
+		.gear-6-chain-wrap {
+			width: 146px;
+			height: 147px;
+			position: absolute;
+			left: 17px;
+			top: 102px;
+			background: url(images/gears.png) no-repeat -371px -706px;
+
+			-webkit-animation: rotate 10000ms linear infinite alternate;
+			-moz-animation: rotate 10000ms linear infinite alternate;
+			-ms-animation: rotate 10000ms linear infinite alternate;
+			animation: rotate 10000ms linear infinite alternate;
+		}
+		.gear-6-chain {
+			width: 1px;
+			height: 380px;
+			border-left: 2px dotted #ffb725;
+			position: absolute;
+			left: 17px;
+			top: 175px;
+			opacity: 0.7;
+
+			-webkit-animation: down 10000ms linear infinite alternate;
+			-moz-animation: down 10000ms linear infinite alternate;
+			-ms-animation: down 10000ms linear infinite alternate;
+			animation: down 10000ms linear infinite alternate;
+		}
+		.gear-6-weight {
+			width: 34px;
+			height: 92px;
+			position: absolute;
+			left: 1px;
+			bottom: 0;
+			background: url(images/gears.png) no-repeat -371px -564px;
+
+			-webkit-animation: up 10000ms linear infinite alternate;
+			-moz-animation: up 10000ms linear infinite alternate;
+			-ms-animation: up 10000ms linear infinite alternate;
+			animation: up 10000ms linear infinite alternate;
+		}
+	}
+
+	/* Animation */
+	/* rotate-back */
+	@keyframes "rotate-back" {
+		from {
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-webkit-transform: rotate(-360deg);
+			-moz-transform: rotate(-360deg);
+			-o-transform: rotate(-360deg);
+			-ms-transform: rotate(-360deg);
+			transform: rotate(-360deg);
+		}
+	}
+
+	@-moz-keyframes rotate-back {
+		from {
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-moz-transform: rotate(-360deg);
+			transform: rotate(-360deg);
+		}
+	}
+
+	@-webkit-keyframes "rotate-back" {
+		from {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-webkit-transform: rotate(-360deg);
+			transform: rotate(-360deg);
+		}
+	}
+
+	@-ms-keyframes "rotate-back" {
+		from {
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-ms-transform: rotate(-360deg);
+			transform: rotate(-360deg);
+		}
+	}
+
+	@-o-keyframes "rotate-back" {
+		from {
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-o-transform: rotate(-360deg);
+			transform: rotate(-360deg);
+		}
+	}
+	/* rotate */
+	@keyframes "rotate" {
+		from {
+			-webkit-transform: rotate(0deg);
+			-moz-transform: rotate(0deg);
+			-o-transform: rotate(0deg);
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-webkit-transform: rotate(360deg);
+			-moz-transform: rotate(360deg);
+			-o-transform: rotate(360deg);
+			-ms-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@-moz-keyframes rotate {
+		from {
+			-moz-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-moz-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@-webkit-keyframes "rotate" {
+		from {
+			-webkit-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-webkit-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@-ms-keyframes "rotate" {
+		from {
+			-ms-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-ms-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@-o-keyframes "rotate" {
+		from {
+			-o-transform: rotate(0deg);
+			transform: rotate(0deg);
+		}
+		to {
+			-o-transform: rotate(360deg);
+			transform: rotate(360deg);
+		}
+	}
+
+	@keyframes "up" {
+		from {
+			bottom: 0px;
+		}
+		to {
+			bottom: 340px;
+		}
+	}
+
+	@-moz-keyframes up {
+		from {
+			bottom: 0px;
+		}
+		to {
+			bottom: 340px;
+		}
+	}
+
+	@-webkit-keyframes "up" {
+		from {
+			bottom: 0px;
+		}
+		to {
+			bottom: 340px;
+		}
+	}
+
+	@-ms-keyframes "up" {
+		from {
+			bottom: 0px;
+		}
+		to {
+			bottom: 340px;
+		}
+	}
+
+	@-o-keyframes "up" {
+		from {
+			bottom: 0px;
+		}
+		to {
+			bottom: 340px;
+		}
+	}
+	/* down */
+	@keyframes "down" {
+		from {
+			height: 387px;
+		}
+		to {
+			height: 48px;
+		}
+	}
+
+	@-moz-keyframes down {
+		from {
+			height: 387px;
+		}
+		to {
+			height: 48px;
+		}
+	}
+
+	@-webkit-keyframes "down" {
+		from {
+			height: 387px;
+		}
+		to {
+			height: 48px;
+		}
+	}
+
+	@-ms-keyframes "down" {
+		from {
+			height: 387px;
+		}
+		to {
+			height: 48px;
+		}
+	}
+
+	@-o-keyframes "down" {
+		from {
+			height: 387px;
+		}
+		to {
+			height: 48px;
 		}
 	}
 }

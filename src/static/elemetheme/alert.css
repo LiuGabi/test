@@ -144,7 +144,7 @@
 }
 
 .el-alert__title{
-    font-size: 14px;
+    font-size: 13px;
     line-height: 18px;
 }
 
@@ -164,7 +164,7 @@
 
 .el-alert__closebtn.is-customed{
     font-style: normal;
-    font-size: 12px;
+    font-size: 13px;
     top: 9px;
 }
 
